@@ -4,7 +4,6 @@
 
 ### Prerequisites
 - Node.js (v14 or higher)
-- MongoDB (local or cloud)
 
 ### Installation
 
@@ -14,12 +13,11 @@ npm install
 
 ### Configuration
 
-Create a `.env` file based on `.env.example`:
+Create a `.env` file in the backend folder:
 
 ```
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/chat-games
-JWT_SECRET=your_jwt_secret_key_here
+JWT_SECRET=your_super_secret_key_here
 NODE_ENV=development
 CLIENT_URL=http://localhost:3000
 ```
@@ -34,6 +32,18 @@ npm run dev
 npm run build
 npm start
 ```
+
+Server runs on: **http://localhost:5000**
+
+## How Data Storage Works
+
+This version uses **file-based storage** instead of MongoDB:
+- Data is saved in JSON files in the `data/` folder
+- Files are created automatically:
+  - `data/users.json` - User accounts
+  - `data/chat.json` - Chat messages
+  - `data/announcements.json` - Admin announcements
+- Perfect for small deployments (up to ~100 users)
 
 ## API Endpoints
 
@@ -61,7 +71,6 @@ npm start
 ## Socket.io Events
 
 ### Client → Server
-- `join-room` - Join a room
 - `send-message` - Send chat message
 - `typing` - User is typing
 - `stop-typing` - User stopped typing
@@ -70,5 +79,13 @@ npm start
 - `receive-message` - New message received
 - `typing` - Someone is typing
 - `stop-typing` - Someone stopped typing
-- `user-joined` - User joined room
-- `user-left` - User left
+- `user-left` - User disconnected
+
+## Deployment
+
+This backend is designed for easy deployment to free hosting services like:
+- **Render** (https://render.com) - Free tier
+- **Railway** (https://railway.app) - Free tier
+- **Fly.io** (https://fly.io) - Free tier
+
+All data files will be stored on the server and persist between restarts.

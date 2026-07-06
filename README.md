@@ -6,8 +6,7 @@ A full-featured web application where users can chat with each other and play ga
 
 ### Chat
 - Real-time messaging between users
-- Admin can monitor all chats
-- Admin can post announcements on homepage
+- Announcements on homepage
 
 ### Games (Coming Soon)
 - Coup

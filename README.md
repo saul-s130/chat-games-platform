@@ -15,12 +15,6 @@ A full-featured web application where users can chat with each other and play ga
 - Cheat
 - Poker
 
-### Admin Features
-- View all chat messages
-- Post information on homepage
-- Ban/unban users
-- Manage member tiers
-
 ### Member Tiers
 - Free
 - Premium
